@@ -1,4 +1,4 @@
-import 'package:butterfly/butterfly.dart';
+import 'package:butterfly_flutter/butterfly.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
