@@ -1,6 +1,6 @@
 name: butterfly_flutter
-description: An id generator that referenced snowflake
-version: 0.0.1
+description: An id generator that referenced butterfly(a snowflake-liked id generator implemented by Java)
+version: 0.0.2
 homepage: https://github.com/alexcdever/butterfly-flutter
 
 environment:
