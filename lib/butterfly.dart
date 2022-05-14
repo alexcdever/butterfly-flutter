@@ -1,35 +1,36 @@
 library butterfly;
 
-// 时间戳的长度
+/// the bit size of timestamp
 const int timeStampSize = 41;
-// 高位顺序递进数的长度
+
+/// the bit size of high sequence
 const int highSequenceSize = 8;
-// 机器编号的长度
+
+/// the bit size of machine number
 const int machineSize = 13;
-// 低位顺序递进数的长度
+
+/// the bit size of low sequence
 const int lowSequenceSize = 1;
 
-/*
-		求最大值的公式的意思是：-1与-1乘以2的Size次方做按位异或运算
-
-		异或运算：对比两组二进制数字的每一位上的数字，不同则在对应的结果的同一位上为1，相同则为0
-
-		-1的二进制表示：11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111
-	*/
-
-// 时间戳最大值，将-1左移41位，则-1变成一个bit长度为41的二进制数字（左边补零）
+/// the max value of timestamp, the binary format of -1 is: 11111111 11111111 11111111 11111111 11111111 11111111 11111111 11111111
 const int timestampMax = -1 ^ (-1 << timeStampSize);
-// 高位顺序递进数最大值
+
+/// the max value of high sequence
 const int highSequenceMax = -1 ^ (-1 << highSequenceSize);
-// 机器编号最大值
+
+/// the max value of machine number
 const int machineMax = -1 ^ (-1 << machineSize);
-// 低位顺序递进数最大值
+
+/// the max value of low sequence
 const int lowSequenceMax = 9;
-// 生成ID时，机器编号的数值需要左移1位
+
+/// the shift length of machine number
 const int machineShift = lowSequenceSize;
-// 生成ID时，高位顺序递进数的数值需要左移14位
+
+/// the shift length of high sequence
 const int highSequenceShift = machineSize + lowSequenceSize;
-// 生成ID时，时间戳的数值需要左移22位
+
+/// the shift length of timestamp
 const int timeStampShift = highSequenceSize + machineSize + lowSequenceSize;
 
 class Butterfly {
@@ -41,20 +42,21 @@ class Butterfly {
     lowSequence = 0;
   }
 
+  /// generate a new id
   generate() {
-    // 判断低位顺序递进数是否为最大值
+    // judge the current low sequence value is max or not
     if (lowSequence == lowSequenceMax) {
-      // 拒绝为机器编号数值大于最大值的发号器实例继续发号
+      // reject to generate a new id cause the machine number is out of range
       if (machine > machineMax) {
-        return 0;
+        throw Exception('the timestamp is out of range');
       }
-      // 判断低位顺序递进数是否为最大值
+      // judge the current high sequence value is max or not
       if (highSequence == highSequenceMax) {
-        // 判断时间戳是否为最大值
+        // judge the current timestamp value is max or not
         if (timestamp == timestampMax) {
           return 0;
         } else {
-          // 时间戳+1，高位顺序递进数归零
+          // timestamp adds 1, and the high sequence value to be 0
           timestamp++;
           highSequence = 0;
         }
@@ -65,7 +67,6 @@ class Butterfly {
     } else {
       lowSequence++;
     }
-    // 	|是按位或运算符,当存在两个数字进行按位或运算的时候，实际进行运算的是两者的二进制数字；运算时会比较位上的数字，当两者任意一者在同一个位上存在1时，结果的该位上为1，否则为0
     var id = timestamp << timeStampShift |
         highSequence << highSequenceShift |
         machine << machineShift |
@@ -74,6 +75,7 @@ class Butterfly {
     return id;
   }
 
+  /// generate the id list that the length specified by the count
   List<int> batchGenerate(int count) {
     List<int> ids = [];
     for (var i = 0; i < count; i++) {
