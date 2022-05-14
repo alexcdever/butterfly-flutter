@@ -19,7 +19,3 @@ int id = generator.generate();
 // generate specified number of ids
 List<int> ids = generator.batchGenerate(10);
 ```
-
-## Additional information
-
-[repo url](https://github.com/alexcdever/butterfly-flutter)
