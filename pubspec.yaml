@@ -1,4 +1,4 @@
-name: butterfly
+name: butterfly_flutter
 description: An id generator that referenced snowflake
 version: 0.0.1
 homepage: https://github.com/alexcdever/butterfly-flutter
