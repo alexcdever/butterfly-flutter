@@ -33,9 +33,13 @@ const int highSequenceShift = machineSize + lowSequenceSize;
 const int timeStampShift = highSequenceSize + machineSize + lowSequenceSize;
 
 class Butterfly {
-  int timestamp, highSequence, machine, lowSequence;
+  late int timestamp, highSequence, machine, lowSequence;
 
   Butterfly(this.timestamp, this.highSequence, this.machine, this.lowSequence);
+  Butterfly.withTimestampAndMachineNumber(this.timestamp, this.machine) {
+    highSequence = 0;
+    lowSequence = 0;
+  }
 
   generate() {
     // 判断低位顺序递进数是否为最大值
