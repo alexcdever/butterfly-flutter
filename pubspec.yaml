@@ -25,18 +25,17 @@ flutter:
     implements: butterfly
     platforms:
       android:
-        package: cn.alexc.butterfly
-        pluginClass: Butterfly
+        dartPluginClass: Butterfly
       ios:
-        pluginClass: Butterfly
+        dartPluginClass: Butterfly
       macos:
-        pluginClass: Butterfly
+        dartPluginClass: Butterfly
       windows:
-        pluginClass: Butterfly
+        dartPluginClass: Butterfly
       web:
-        pluginClass: Butterfly
+        dartPluginClass: Butterfly
       linux:
-        pluginClass: Butterfly
+        dartPluginClass: Butterfly
 
   # To add assets to your package, add an assets section, like this:
   # assets:
