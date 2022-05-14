@@ -1,39 +1,25 @@
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
-
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages). 
-
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages). 
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+This is a package for generating id.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+This package generates 19 bytes id by timestamp and the machine number. The timestamp should be millisecond format. But the machine number just decided by what you want.
+The construction of id is like this:
+- timeStampSize = 41;
+- highSequenceSize = 8;
+- machineSize = 13;
+- lowSequenceSize = 1;
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
-
 ```dart
-const like = 'sample';
+// get generator instance by timestamp and machine number
+var generator = Butterfly(DateTime.now().millisecondsSinceEpoch, 0);
+// generate one id
+int id = generator.generate();
+// generate specified number of ids
+List<int> ids = generator.batchGenerate(10);
 ```
 
 ## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+[repo url](https://github.com/alexcdever/butterfly-flutter)

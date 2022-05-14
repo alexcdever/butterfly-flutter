@@ -1,7 +1,7 @@
 name: butterfly
 description: An id generator that referenced snowflake
 version: 0.0.1
-homepage:
+homepage: https://github.com/alexcdever/butterfly-flutter
 
 environment:
   sdk: ">=2.17.0 <3.0.0"
@@ -25,17 +25,17 @@ flutter:
     platforms:
       android:
         package: cn.alexc.butterfly
-        dartPluginClass: ButterflyPlugin
+        pluginClass: Butterfly
       ios:
-        dartPluginClass: ButterflyPlugin
+        pluginClass: Butterfly
       macos:
-        dartPluginClass: ButterflyPlugin
+        pluginClass: Butterfly
       windows:
-        dartPluginClass: ButterflyPlugin
+        pluginClass: Butterfly
       web:
-        dartPluginClass: ButterflyPlugin
+        pluginClass: Butterfly
       linux:
-        dartPluginClass: ButterflyPlugin
+        pluginClass: Butterfly
 
   # To add assets to your package, add an assets section, like this:
   # assets:
