@@ -1,6 +1,6 @@
 name: butterfly_flutter
 description: An id generator that referenced butterfly(a snowflake-liked id generator implemented by Java)
-version: 0.0.2
+version: 0.0.3
 homepage: https://github.com/alexcdever/butterfly-flutter
 
 environment:
@@ -31,8 +31,6 @@ flutter:
       macos:
         dartPluginClass: Butterfly
       windows:
-        dartPluginClass: Butterfly
-      web:
         dartPluginClass: Butterfly
       linux:
         dartPluginClass: Butterfly
