@@ -21,6 +21,21 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
+  plugin:
+    platforms:
+      android:
+        package: cn.alexc.butterfly
+        dartPluginClass: ButterflyPlugin
+      ios:
+        dartPluginClass: ButterflyPlugin
+      macos:
+        dartPluginClass: ButterflyPlugin
+      windows:
+        dartPluginClass: ButterflyPlugin
+      web:
+        dartPluginClass: ButterflyPlugin
+      linux:
+        dartPluginClass: ButterflyPlugin
 
   # To add assets to your package, add an assets section, like this:
   # assets:
