@@ -1,6 +1,6 @@
 name: butterfly_flutter
 description: An id generator that referenced butterfly(a snowflake-liked id generator implemented by Java)
-version: 0.0.3
+version: 0.0.5
 homepage: https://github.com/alexcdever/butterfly-flutter
 
 environment:
@@ -22,18 +22,19 @@ dev_dependencies:
 # The following section is specific to Flutter packages.
 flutter:
   plugin:
-    implements: butterfly
+#    implements: butterfly
     platforms:
       android:
-        dartPluginClass: Butterfly
+        package: cn.alexcdever.butterfly_flutter
+        pluginClass: Butterfly
       ios:
-        dartPluginClass: Butterfly
+        pluginClass: Butterfly
       macos:
-        dartPluginClass: Butterfly
+        pluginClass: Butterfly
       windows:
-        dartPluginClass: Butterfly
+        pluginClass: Butterfly
       linux:
-        dartPluginClass: Butterfly
+        pluginClass: Butterfly
 
   # To add assets to your package, add an assets section, like this:
   # assets:
